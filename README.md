@@ -29,7 +29,7 @@ watch kubectl -n vnyc get all
 
 ## Intro
 
-Using [00_intro.yaml](00_intro.yaml):
+Using [00_intro.yaml](00_00_intro_wrong_entrypoint_command.yaml):
 
 ```
 kubectl -n vnyc apply -f 00_intro.yaml
@@ -54,7 +54,7 @@ _Download [in original resolution](https://github.com/mhausenblas/troubleshootin
 
 ### Image issue
 
-Using [01_pp_image.yaml](01_pp_image.yaml):
+Using [01_pp_image.yaml](00_02_intro_wrong_image.yaml):
 
 ```
 # let's deploy a confused image and look for the error:
@@ -76,7 +76,7 @@ Relevant real-world examples on StackOverflow:
 
 ### Keeps crashing
 
-Using [02_pp_oomer.yaml](02_pp_oomer.yaml) and [02_pp_oomer-fixed.yaml](02_pp_oomer-fixed.yaml):
+Using [02_pp_oomer.yaml](01_02_pp_oomer.yaml) and [02_pp_oomer-fixed.yaml](01_02_pp_oomer-fixed.yaml):
 
 ```
 # prepare a greedy fellow that will OOM:
@@ -104,7 +104,7 @@ Relevant real-world examples on StackOverflow:
 
 ### Something's wrong with the app
 
-Using [03_pp_logs.yaml](03_pp_logs.yaml): 
+Using [03_pp_logs.yaml](01_03_pp_logs.yaml): 
 
 ```
 kubectl -n vnyc apply -f 03_pp_logs.yaml

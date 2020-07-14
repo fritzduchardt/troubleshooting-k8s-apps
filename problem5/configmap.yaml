@@ -1,0 +1,8 @@
+apiVersion: v1
+data:
+  mode: fast
+  algo: fail-safe
+kind: ConfigMap
+metadata:
+  name: external-server
+  namespace: kube-system

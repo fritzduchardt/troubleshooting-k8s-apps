@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: configurableapplication
+  name: configurableapplication
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: configurableapplication
+  template:
+    metadata:
+      labels:
+        app: configurableapplication
+    spec:
+      containers:
+        - image: fritzduchardt/k8s-showcase-application:latest
+          imagePullPolicy: Always
+          name: configurableapplication
+          env:
+            - name: VALIDATE_CONFIG
+              value: "true"
+            - name: CONFIG_FOLDER_PATH
+              value: "/config"
+          volumeMounts:
+            - mountPath: /conf
+              name: config
+          livenessProbe:
+            httpGet:
+              port: 9090
+              path: /health
+      volumes:
+        - name: config
+          configMap:
+            name: configurableapplication

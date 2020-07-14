@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: cryptoapp
+  name: cryptoapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cryptoapp
+  template:
+    metadata:
+      labels:
+        app: cryptoapp
+    spec:
+      containers:
+        - image: fritzduchardt/k8s-showcase-application:latest
+          imagePullPolicy: Always
+          name: cryptoapp
+          env:
+            - name: DATABASE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: password
+                  name: cryptoapp
+          readinessProbe:
+            httpGet:
+              port: 9090
+              path: /health
+

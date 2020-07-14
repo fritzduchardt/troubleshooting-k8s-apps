@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: k8sshowcase
+  name: k8sshowcase
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: k8sshowcase
+  template:
+    metadata:
+      labels:
+        app: k8sshowcase
+    spec:
+      containers:
+        - image: fritzduchardt/k8s-showcase-application:latest
+          imagePullPolicy: Always
+          name: k8s-showcase-application
+          volumeMounts:
+            - mountPath: /tmp
+              name: host-folder
+          resources:
+            requests:
+              cpu: 500m
+              memory: 256Mi
+          readinessProbe:
+            httpGet:
+              port: 9090
+              path: /health
+      volumes:
+        - name: host-folder
+          hostPath:
+            path: /tmp
