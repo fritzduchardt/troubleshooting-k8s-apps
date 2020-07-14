@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: upstream-deployment
+  name: upstream-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: upstream-deployment
+  template:
+    metadata:
+      labels:
+        app: upstream-deployment
+    spec:
+      containers:
+        - image: fritzduchardt/k8s-showcase-application:forward
+          imagePullPolicy: Always
+          name: upstream-deployment
+          env:
+            - name: SERVICE_URL
+              value: yet-another-k8sshowcase:8080
+          livenessProbe:
+            httpGet:
+              port: 9090
+              path: /health
