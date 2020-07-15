@@ -7,13 +7,8 @@ kubectl apply -f problem5
 
 ## Description
 
-A user is trying to get his deployment running and wants to make it externally available with a Node Port service.
-
-Unfortunately, nothing seems to work.
+The user can't get this deployment to run. For some reason some of the Pods are not started.
 
 ## Expected result
 
-```
-curl [external-ip]:[external-port]/hostname
-```
-Should return the hostname.
+All Pods should be running.

@@ -2,30 +2,30 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: socialmediaserver
-  name: socialmediaserver
+    app: cryptoapp
+  name: cryptoapp
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: socialmediaserver
+      app: cryptoapp
   template:
     metadata:
       labels:
-        app: socialmediaserver
+        app: cryptoapp
     spec:
       containers:
-        - image: fritzduchardt/k8s-showcase-application:forward
+        - image: fritzduchardt/k8s-showcase-application:latest
           imagePullPolicy: Always
-          name: socialmediaserver
+          name: cryptoapp
           env:
             - name: DATABASE_PASSWORD
               valueFrom:
                 secretKeyRef:
                   key: password
-                  name: socialmediaserver
+                  name: cryptoapp
           readinessProbe:
             httpGet:
-              port: 8080
+              port: 9090
               path: /health
 

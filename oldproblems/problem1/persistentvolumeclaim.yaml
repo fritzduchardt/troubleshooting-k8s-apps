@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: moneyapp-claim
+  name: web-claim
   labels:
-    app: moneyapp-claim
+    app: web-claim
   namespace: default
 spec:
   accessModes:

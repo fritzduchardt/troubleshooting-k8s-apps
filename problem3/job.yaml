@@ -1,0 +1,24 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: dataprocessing
+spec:
+  template:
+    spec:
+      containers:
+        - name: hello
+          image: busybox
+          command: ['sh', '-c', 'echo "Hello, Kubernetes!" && sleep 5']
+          env:
+            - name: PARAM1
+              value: 312-0
+            - name: PARAM2
+              valueFrom:
+                configMapKeyRef:
+                  key: param-2
+                  name: dataprocessing
+            - name: PARAM3
+              valueFrom:
+                secretKeyRef:
+                  key: param-3
+                  name: dataprocessing

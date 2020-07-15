@@ -7,14 +7,8 @@ kubectl apply -f problem3
 
 ## Description
 
-For his application "web-app", your customer can't get his Pods running.
-
-For some reason the app does not seem to response to traffic.
+The user wants to create a Job. Jobs are like deployment in that they spawn of Pods, but they only run until their process finishes and them remain in status "Competed".
 
 ## Expected result
 
-```
-kubectl port-forward service/web-app 8080
-curl localhost:8080/hostname
-```
-Should return the hostname.
+Job should run successfully.

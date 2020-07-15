@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: external-server
+  name: external-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: external-server
+  template:
+    metadata:
+      labels:
+        app: external-server
+    spec:
+      containers:
+        - image: fritzduchardt/k8s-showcase-application:0.0.1
+          imagePullPolicy: Always
+          name: external-server
+          env:
+            - name: APPLICATION_MODE
+              valueFrom:
+                configMapKeyRef:
+                  key: mode
+                  name: external-server
+          livenessProbe:
+            httpGet:
+              port: 9090
+              path: /health

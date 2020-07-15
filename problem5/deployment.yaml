@@ -2,29 +2,28 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: external-server
-  name: external-server
+    app: hightraffic-app
+  name: hightraffic-app
 spec:
-  replicas: 1
+  replicas: 10
   selector:
     matchLabels:
-      app: external-server
+      app: hightraffic-app
   template:
     metadata:
       labels:
-        app: external-server
+        app: hightraffic-app
     spec:
       containers:
-        - image: fritzduchardt/k8s-showcase-application:0.0.1
+        - image: fritzduchardt/k8s-showcase-application:forward
           imagePullPolicy: Always
-          name: external-server
-          env:
-            - name: APPLICATION_MODE
-              valueFrom:
-                configMapKeyRef:
-                  key: mode
-                  name: external-server
-          livenessProbe:
+          name: hightraffic-app
+          resources:
+            requests:
+              cpu: 1
+              memory: 1Gi
+          readinessProbe:
             httpGet:
               port: 9090
               path: /health
+

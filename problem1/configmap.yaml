@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: fluentdconfig
+data:
+  fluentd-mode: aggregate
+  fluentd-status: ready
