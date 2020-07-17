@@ -5,7 +5,7 @@ metadata:
     app: clone
   name: clone
 spec:
-  serviceName: clones
+  serviceName: return-of-the-clones
   replicas: 3
   selector:
     matchLabels:

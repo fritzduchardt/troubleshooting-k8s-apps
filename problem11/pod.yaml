@@ -2,12 +2,20 @@ apiVersion: v1
 kind: Pod
 metadata:
   labels:
-    app: nginx
-  name: nginx
+    app: spacefiller
+  name: spacefiller
 spec:
-  hostname: pod1
-  subdomain: nginx
   containers:
-    - image: nginx
-      imagePullPolicy: IfNotPresent
-      name: nginx
+    - image: fritzduchardt/k8s-showcase-application
+      imagePullPolicy: Always
+      name: k8sshowcase
+      env:
+        - name: SPRING_PROFLES_ACTIVE
+          value: nodb
+      volumeMounts:
+        - mountPath: /tmp
+          name: host
+  volumes:
+    - name: host
+      hostPath:
+        path: /data

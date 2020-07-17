@@ -1,19 +1,25 @@
-# Problem 10
+# Problem 8
 
 ## Installation
-
-Not required 
+```
+kubectl apply -f problem11
+```
 
 ## Description
 
-The user wants to execute a couple of curls into one of his Pods. For that purpose he wants to start a dedicated Curl Pod in an interactive session. However, for some reason his curl Pod does not keep running.
+Your customer is trying to setup two things: a Pod that can be queried directly via a headless Service and a StatefulSet with Pods that can be queried directly.
 
-This is the command he is executing: 
-
-```
-kubectl run curl-pod -it --rm --image=curlimages/curl --command bash
-```
+However, the configuration does not work. Please investigate.
 
 ## Expected result
 
-The curl Pod should keep running.
+From the provided Netshoot Pod the following curls should work fine:
+
+Calling the single Pod:
+```
+curl [Pod-Name].[Service-Name]
+```
+Calling the StatefulSet Pods, e.g.
+```
+curl [Pod-Name].[Service-Name]
+```
