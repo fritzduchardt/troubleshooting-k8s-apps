@@ -14,7 +14,7 @@ However, the configuration seems to be not quite right.
 ## Expected result
 
 ```
-kubectl port-forward service/web-app 8080:80
+kubectl port-forward service/proxied-server 8080:80
 curl localhost:8080/hostname
 ```
 Should return the hostname.

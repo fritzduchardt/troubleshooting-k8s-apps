@@ -16,6 +16,9 @@ spec:
     spec:
       containers:
         - image: fritzduchardt/k8s-showcase-application:latest
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: nodb
           imagePullPolicy: Always
           name: proxied-server
           livenessProbe:

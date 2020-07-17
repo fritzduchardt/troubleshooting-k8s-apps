@@ -1,20 +1,16 @@
-# Problem 7
+# Problem 8
 
 ## Installation
 ```
-kubectl apply -f problem6
+kubectl apply -f problem8
 ```
 
 ## Description
 
-Here we are having two Deployment - upstream and downstream. The upstream application calls downstream when calling the "forward" endpoint.
+Your customer wants to start run a job that calls an internal endpoint on an application to trigger a data migration. 
 
-But something is not working regarding that call forwarding.
+For some reason the setup does not work.
 
 ## Expected result
 
-```
-kubectl port-forward service/upstream-deployment 8080
-curl localhost:8080/forward/hostname
-```
-Should return the hostname.
+The job has run successfully.

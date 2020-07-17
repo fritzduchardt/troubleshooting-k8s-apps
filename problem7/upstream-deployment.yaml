@@ -15,12 +15,14 @@ spec:
         app: upstream-deployment
     spec:
       containers:
-        - image: fritzduchardt/k8s-showcase-application:forward
+        - image: fritzduchardt/k8s-showcase-application:latest
           imagePullPolicy: Always
           name: upstream-deployment
           env:
             - name: SERVICE_URL
               value: yet-another-k8sshowcase:8080
+            - name: SPRING_PROFILES_ACTIVE
+              value: nodb
           livenessProbe:
             httpGet:
               port: 9090

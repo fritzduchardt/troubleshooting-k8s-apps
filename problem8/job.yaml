@@ -1,0 +1,17 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  labels:
+    app: migration
+  name: migration
+spec:
+  template:
+    spec:
+      restartPolicy: OnFailure
+      containers:
+        - image: curlimages/curl:7.70.0
+          imagePullPolicy: Always
+          name: migration
+          command:
+            - curl
+            - http://localhost/hostname

@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  labels:
+    app: clone
+  name: clone
+spec:
+  serviceName: clones
+  replicas: 3
+  selector:
+    matchLabels:
+      app: clone
+  template:
+    metadata:
+      labels:
+        app: clone
+    spec:
+      containers:
+        - image: nginx
+          imagePullPolicy: IfNotPresent
+          name: clone

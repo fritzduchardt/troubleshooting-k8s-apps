@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app: netshoot
+  name: netshoot
+spec:
+  containers:
+    - image: nicolaka/netshoot
+      imagePullPolicy: IfNotPresent
+      name: netshoot
+      command:
+        - tail
+        - -f
+        - /dev/null

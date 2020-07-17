@@ -21,7 +21,7 @@ spec:
           resources:
             requests:
               cpu: 1
-              memory: 1Gi
+              memory: 250Mi
           readinessProbe:
             httpGet:
               port: 9090

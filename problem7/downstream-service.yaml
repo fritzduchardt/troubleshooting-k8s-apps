@@ -3,7 +3,7 @@ kind: Service
 metadata:
   labels:
     app: downstream-deployment
-  name: downstream-deployment
+  name: yet-another-k8sshowcase
 spec:
   ports:
     - port: 8080

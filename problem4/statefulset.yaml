@@ -7,7 +7,7 @@ spec:
     matchLabels:
       app: nginx
   serviceName: "nginx"
-  replicas: 2
+  replicas: 1
   template:
     metadata:
       labels:
@@ -27,4 +27,4 @@ spec:
         - name: www
           persistentVolumeClaim:
             claimName: web-claim
-            readOnly: true
+            readOnly: false
