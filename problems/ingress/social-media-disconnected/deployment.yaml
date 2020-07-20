@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: socialmediaserver
+  name: socialmediaserver
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: socialmediaserver
+  template:
+    metadata:
+      labels:
+        app: socialmediaserver
+    spec:
+      containers:
+        - image: fritzduchardt/k8s-showcase-application:latest
+          imagePullPolicy: Always
+          name: socialmediaserver
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: nodb
+            - name: FACEBOOK_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  key: accesskey
+                  name: socialmediaserver
+          readinessProbe:
+            httpGet:
+              port: 9090
+              path: /health
+

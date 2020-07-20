@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: data-app
+  name: data-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: data-app
+  template:
+    metadata:
+      labels:
+        app: data-app
+    spec:
+      containers:
+        - image: fritzduchardt/k8s-showcase-application:latest
+          imagePullPolicy: Always
+          name: data-app
+          env:
+            - name: STORAGE_FOLDER_PATH
+              value: /money-cache
+            - name: SPRING_PROFILES_ACTIVE
+              value: nodb
+          volumeMounts:
+            - mountPath: /tmp
+              name: persistent-volume
+          readinessProbe:
+            httpGet:
+              port: 9090
+              path: /health
+      volumes:
+        - name: persistent-volume
+          persistentVolumeClaim:
+            claimName: data-app-claim

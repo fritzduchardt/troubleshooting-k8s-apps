@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: data-app-claim
+  labels:
+    app: data-app-claim
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: ionos-enterprise-hdd
+  resources:
+    requests:
+      storage: 1Gi

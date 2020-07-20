@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: clone
+  name: clone
+spec:
+  replicas: 20
+  selector:
+    matchLabels:
+      app: clone
+  template:
+    metadata:
+      labels:
+        app: clone
+    spec:
+      containers:
+        - image: fritzduchardt/k8s-showcase-application
+          imagePullPolicy: Always
+          name: clone
+      nodeSelector:
+        kubernetes.io/hostname: nodepool-eona5wwtzn

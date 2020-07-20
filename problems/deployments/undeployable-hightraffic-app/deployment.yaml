@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: hightraffic-app
+  name: hightraffic-app
+spec:
+  replicas: 10
+  selector:
+    matchLabels:
+      app: hightraffic-app
+  template:
+    metadata:
+      labels:
+        app: hightraffic-app
+    spec:
+      containers:
+        - image: fritzduchardt/k8s-showcase-application:forward
+          imagePullPolicy: Always
+          name: hightraffic-app
+          resources:
+            requests:
+              cpu: 4
+              memory: 250Mi
+          readinessProbe:
+            httpGet:
+              port: 9090
+              path: /health
+
