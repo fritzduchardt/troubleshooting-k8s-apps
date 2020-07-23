@@ -17,6 +17,9 @@ spec:
       containers:
         - image: fritzduchardt/k8s-showcase-application:forward
           imagePullPolicy: Always
+          env:
+           - name: SPRING_PROFILES_ACTIVE
+             value: nodb
           name: hightraffic-app
           resources:
             requests:

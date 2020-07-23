@@ -19,6 +19,8 @@ spec:
           imagePullPolicy: Always
           name: configurableapplication
           env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: nodb
             - name: VALIDATE_CONFIG
               value: "true"
             - name: CONFIG_FOLDER_PATH

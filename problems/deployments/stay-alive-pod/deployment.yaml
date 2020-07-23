@@ -18,6 +18,9 @@ spec:
         - image: fritzduchardt/k8s-showcase-application:latest
           imagePullPolicy: Always
           name: simple-application
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: nodb
           livenessProbe:
             failureThreshold: 1
             initialDelaySeconds: 1
