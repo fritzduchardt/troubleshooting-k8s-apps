@@ -1,8 +1,8 @@
-# Configuration is tricky
+# Configmaps are tricky
 
 ## Installation
 ```
-kubectl apply -f problems/deployments/configuration-is-tricky/ 
+kubectl apply -f problems/deployments/configmaps-are-tricky/ 
 ```
 ## Description
 
