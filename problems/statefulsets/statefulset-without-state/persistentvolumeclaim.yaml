@@ -1,10 +1,9 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: web-claim
+  name: webclaim
   labels:
     app: web-claim
-#  namespace: default
 spec:
   accessModes:
     - ReadWriteOnce

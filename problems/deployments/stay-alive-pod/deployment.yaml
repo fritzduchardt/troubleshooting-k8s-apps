@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: simple-application
+  name: simple-application
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: simple-application
+  template:
+    metadata:
+      labels:
+        app: simple-application
+    spec:
+      containers:
+        - image: fritzduchardt/k8s-showcase-application:latest
+          imagePullPolicy: Always
+          name: simple-application
+          livenessProbe:
+            failureThreshold: 1
+            initialDelaySeconds: 1
+            periodSeconds: 1
+            httpGet:
+              port: 9090
+              path: /health

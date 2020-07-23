@@ -6,8 +6,8 @@ spec:
   selector:
     matchLabels:
       app: nginx
-  serviceName: "nginx"
-  replicas: 1
+  serviceName: "thewebserver"
+  replicas: 2
   template:
     metadata:
       labels:

@@ -1,7 +1,0 @@
-apiVersion: v1
-data:
-  configuration.conf: |
-    { "master-key": "dfjwncas7" }
-kind: ConfigMap
-metadata:
-  name: configurableapplication

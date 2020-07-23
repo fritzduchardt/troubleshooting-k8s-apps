@@ -21,6 +21,36 @@ Once ready to move on to the next problem, delete the resources in your namespac
 kubectl delete all --all
 ```
 
+## Order of difficulty
+
+### Easy Problems
+
+- deployments/stay-alive-pod
+- deployments/configmaps-are-tricky
+- deployments/undeployable-hightraffic-app
+- daemonsets/defect-in-daemonset
+- jobs/job-incomplete
+
+### Medium Problems
+- deployments/secret-setup-conundrum
+- ingress/node-port-problems
+- pods/pod-head-scratcher
+- pods/space-scenario
+- services/upstream-upset
+
+### Hard Problems
+- ingress/configuring-the-crypto-app
+- ingress/social-media-disconnected
+- jobs/mangled-migration
+- persistentvolumes/dataapp-and-its-volume
+- persistentvolumes/webapp-wont-work
+- services/headless-pod
+- services/multiport-mixup
+- statefulsets/statefulset-without-state
+
+
+
+
 ## Author
 
 * Fritz Duchardt

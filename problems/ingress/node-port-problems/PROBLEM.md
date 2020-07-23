@@ -19,6 +19,17 @@ kubectl get nodes -o wide
 
 ## Expected result
 
+Retrieve an external IP from one of your nodes with:
+
+```
+kubectl get nodes -o wide
+```
+
+Retrieve the external port (the one in range o 30000-32767) of the "web-app" service with:
+```
+kubectl get service
+```
+
 A curl to ..
 
 ```

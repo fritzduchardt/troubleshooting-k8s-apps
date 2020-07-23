@@ -12,7 +12,7 @@ This user got stuck on a StatefulSet configuration. He uses the StatefulSet to c
 There is a prepared HTML file called `index.html` that can be copied to the shared HD like this:
 
 ```
-kubectl cp problem4/index.html web-0:/usr/share/nginx/html/
+kubectl cp problems/statefulsets/statefulset-without-state/index.html web-0:/usr/share/nginx/html/
 ```
 
 ## Expected result

@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: secretiveapp
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: secretiveapp
+  name: secretiveapp
+  namespace: secretiveapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: secretiveapp
+  template:
+    metadata:
+      labels:
+        app: secretiveapp
+    spec:
+      containers:
+        - image: fritzduchardt/k8s-showcase-application:latest
+          imagePullPolicy: Always
+          name: secretiveapp
+          env:
+            - name: PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: passwd
+                  name: secretivesecret
