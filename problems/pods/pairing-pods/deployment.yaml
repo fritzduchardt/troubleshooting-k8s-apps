@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: logwriterapp
+  name: logwriterapp
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: logwriterapp
+  template:
+    metadata:
+      labels:
+        app: logwriterapp
+    spec:
+      containers:
+        - image: ubuntu
+          command:
+            - sh
+            - -c
+            - tail -f /dev/null
+          name: logwriterapp
+          volumeMounts:
+            - mountPath: /shared
+              name: shared
+      volumes:
+        - name: shared
+          hostPath:
+            path: /shared

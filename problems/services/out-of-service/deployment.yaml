@@ -16,4 +16,6 @@ spec:
     spec:
       containers:
         - image: nginx
+          ports:
+            - containerPort: 80
           name: api-gateway

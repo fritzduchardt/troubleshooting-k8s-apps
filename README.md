@@ -39,6 +39,7 @@ kubectl delete all --all
 - pods/pod-head-scratcher
 - pods/space-scenario
 - services/upstream-upset
+- peristentvolumes/snapshot-longshot
 
 ### Hard Problems
 - ingress/configuring-the-crypto-app

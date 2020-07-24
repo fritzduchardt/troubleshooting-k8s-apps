@@ -9,7 +9,7 @@ spec:
   rules:
     - http:
         paths:
-          - path: /cryptoapp/(.*)
+          - path: /crypto-app/(.*)
             backend:
               serviceName: cryptoapp
               servicePort: 9090

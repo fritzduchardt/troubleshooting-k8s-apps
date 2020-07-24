@@ -2,29 +2,29 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: data-app
-  name: data-app
+    app: back-app
+  name: back-app
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: data-app
+      app: back-app
   template:
     metadata:
       labels:
-        app: data-app
+        app: back-app
     spec:
       containers:
         - image: fritzduchardt/k8s-showcase-application:latest
           imagePullPolicy: Always
-          name: data-app
+          name: back-app
           env:
             - name: STORAGE_FOLDER_PATH
-              value: /backup-data
+              value: /money-cache
             - name: SPRING_PROFILES_ACTIVE
               value: nodb
           volumeMounts:
-            - mountPath: /backup-data
+            - mountPath: /tmp
               name: persistent-volume
           readinessProbe:
             httpGet:
@@ -33,4 +33,18 @@ spec:
       volumes:
         - name: persistent-volume
           persistentVolumeClaim:
-            claimName: data-app-claim
+            claimName: back-app-claim
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: back-app-claim
+  labels:
+    app: back-app-claim
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: ionos-enterprise-hdd
+  resources:
+    requests:
+      storage: 1Gi

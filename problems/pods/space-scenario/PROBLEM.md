@@ -2,7 +2,9 @@
 
 ## Installation
 
+```
 kubectl apply -f problems/pods/space-scenario/ 
+```
 
 ## Description
 

@@ -11,12 +11,6 @@ A user is trying to get his application running. He wants to make it externally 
 
 Unfortunately, nothing seems to work.
 
-You can retrieve the external IP of your Nodes with the following command:
-
-```
-kubectl get nodes -o wide
-```
-
 ## Expected result
 
 Retrieve an external IP from one of your nodes with:
@@ -35,4 +29,5 @@ A curl to ..
 ```
 curl [external-ip]:[external-port]/hostname
 ```
+
 .. should return the hostname.

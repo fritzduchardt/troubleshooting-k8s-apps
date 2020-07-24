@@ -18,8 +18,6 @@ spec:
       volumeMounts:
         - mountPath: /tmp
           name: host
-  nodeSelector:
-    kubernetes.io/hostname: yet-another-pool-3pxhytp4be
   volumes:
     - name: host
       emptyDir: {}

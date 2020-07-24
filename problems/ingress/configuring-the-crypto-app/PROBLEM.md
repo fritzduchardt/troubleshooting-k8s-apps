@@ -13,6 +13,6 @@ Unfortunately, things are not working and he does not know what to do.
 ## Expected result
 
 ```
-curl [external-ip]/hostname
+curl [external-ip]/cryptoapp/hostname
 ```
 Should return the hostname.

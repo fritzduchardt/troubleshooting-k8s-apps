@@ -14,6 +14,6 @@ The user wants to expose a deployment via a service. However, once he opens a po
 The following command ..
 ```
 k port-forward service/api-gateway 8080:80 
-curl localhost:8080
+curl -v localhost:8080
 ```
--- should return the hostname.
+-- should return a 200 HTTP Status.
