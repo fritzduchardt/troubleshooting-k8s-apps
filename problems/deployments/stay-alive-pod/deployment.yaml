@@ -26,5 +26,5 @@ spec:
             initialDelaySeconds: 1
             periodSeconds: 1
             httpGet:
-              port: 9090
+              port: 8080
               path: /health

@@ -28,8 +28,10 @@ kubectl delete all --all
 - deployments/stay-alive-pod
 - deployments/configmaps-are-tricky
 - deployments/undeployable-hightraffic-app
+- deployments/defect-deployment
 - daemonsets/defect-in-daemonset
 - jobs/job-incomplete
+- services/out-of-service
 
 ### Medium Problems
 - deployments/secret-setup-conundrum

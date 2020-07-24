@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: quickpoddeployment
+  name: quickpoddeployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: QUICKPODDEPLOYMENT
+  template:
+    metadata:
+      labels:
+        app: quickpoddeployment
+    spec:
+      containers:
+        - image: debian:testing-slim
+          imagePullPolicy: Never
+          name: quickpoddeployment
