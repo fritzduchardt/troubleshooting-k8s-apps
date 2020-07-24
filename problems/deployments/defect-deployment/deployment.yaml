@@ -16,5 +16,8 @@ spec:
     spec:
       containers:
         - image: debian:testing-slim
-          imagePullPolicy: Never
+          command:
+            - sh
+            - -c
+            - tail -f /dev/null
           name: quickpoddeployment
