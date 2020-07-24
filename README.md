@@ -1,5 +1,7 @@
 # Troubleshooting K8s Applications
 
+Regular K8s problem scenarios, easy to install for investigation and with their respective solutions.
+
 ## Usage
 
 Create a dedicated namespace, e.g.:
